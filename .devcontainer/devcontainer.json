@@ -1,0 +1,9 @@
+{
+  "name": "pgbouncer-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "dev",
+  "postCreateCommand": "pip install -r requirements.txt && ./autogen.sh && ./configure --prefix=/home/dev/install --with-cares --with-pam --with-ldap && make -j$(nproc)"
+}
